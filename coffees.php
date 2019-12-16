@@ -72,7 +72,8 @@
                     <?php endwhile; ?>
                 </table>
 
-            </div> <!-- End Main display container -->
+            </div> 
+            <!-- End Main display container -->
         </div>
         <!--End Row -->
 
@@ -122,13 +123,13 @@
                                     <label for="roasterid">Roaster</label>
                                     <select class="form-control" id="roasterid" name="roasterid">
                                         <option>Select One...</option>
-                                        <?php $result = $mysqli->query("SELECT roasterid, roastername FROM roaster");
 
+                                        <!--Get Roaster details from DB, then display options -->
+                                        <?php $result = $mysqli->query("SELECT roasterid, roastername FROM roaster");
                                         while ($row = $result->fetch_assoc()) : ?>
-                                            <option value="<?php
-                                                                echo $row['roasterid']; ?>" <?php if ($update == true && $row['roasterid'] == $roasterid) {
-                                                                                            echo 'selected';
-                                                                                        } ?>><?php echo $row['roastername']; ?></option>
+                                            <option value="<?php echo $row['roasterid']; ?>" 
+                                            <?php if ($update == true && $row['roasterid'] == $roasterid) {echo 'selected';} ?>>
+                                            <?php echo $row['roastername']; ?></option>
                                         <?php endwhile ?>
                                     </select>
                                 </div>
@@ -149,11 +150,12 @@
                 <!--End User Input Form -->
             </div>
         </div>
-    </div> <!-- End Modal -->
+    </div> 
+    <!-- End Modal -->
     
     </body>
 
-    <!-- Show modal and hide if $update variable is set -->
+    <!-- Show modal $update variable is set -->
     <?php if ($update == true) {
         echo '<script>$(\'#input-modal\').modal(\'show\')</script>';
     } ?>
