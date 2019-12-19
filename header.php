@@ -33,6 +33,7 @@
         <ul class="navbar-nav ml-auto">
             <?php if ($_SESSION['active']==TRUE) :?>
             <li class="nav-item"><a class="nav-link text-white">Signed in as: <?php echo $_SESSION['username'] ?> <?php echo $_SESSION['useravatar'];?></a></li>
+            <li class="nav-item"><a class="nav-link" href="myrating.php">My Ratings</a>
             <li class="nav-item"><a class="nav-link" href="index.php">Logout ↷</a>
             </li>
             <?php endif ?>

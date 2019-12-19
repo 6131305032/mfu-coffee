@@ -26,6 +26,7 @@ if (isset($_POST['login'])) {
 		$_SESSION['username']=$row['username'];
 		$_SESSION['useravatar']=$row['useravatar'];
 		$_SESSION['active']=TRUE;
+		$_SESSION['userid']=$row['userid'];
 		header("location: coffees.php");
 	} else {
 		$_SESSION['message']= "Failed to login!";

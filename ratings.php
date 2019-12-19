@@ -43,7 +43,9 @@ if ($coffeeid != NULL){
 
             <!--Main display area -->
             <div class="col-sm-8 pt-4">
-                <h1>Ratings for <?php if (!$coffeename){echo 'All';} else {echo $coffeename;} ?></h1>
+                <h1>Ratings for <?php if (!$coffeename){echo 'All';} else {echo $coffeename;} ?> 
+                    <button id="addRoaster" class="btn btn-success btn-lg" data-toggle="modal" data-target="#input-modal">+ Add New</button>
+                </h1>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -86,5 +88,26 @@ if ($coffeeid != NULL){
         </div> 
 
     </div> <!--End Body Container -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="input-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enter Roaster Details</h5>
+                    <button onclick="location.href='ratings.php'" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                <!--Rating input Form -->
+                <?php include_once('ratinginput.php'); ?>
+                                    
+                </div>
+            </div>
+        </div>
+     </div><!-- End Modal -->
 </body>
 </html>
