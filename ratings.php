@@ -46,7 +46,7 @@ if ($coffeeid != NULL){
                 <h1>Ratings for <?php if (!$coffeename){echo 'All';} else {echo $coffeename;} ?> 
                     <button id="addRoaster" class="btn btn-success btn-lg" data-toggle="modal" data-target="#input-modal">+ Add New</button>
                 </h1>
-                <table class="table table-hover">
+                <table id="mainTable" class="table table-hover">
                     <thead>
                         <tr>
                             <th></th>
@@ -57,7 +57,7 @@ if ($coffeeid != NULL){
                             <th>Date</th>
                         </tr>
                     </thead>
-
+                    <tbody>
                     <!-- While there is more data, echo it into the appropriate columns -->
                     <?php while ($row = $result->fetch_assoc()) : ?>
 
@@ -76,6 +76,7 @@ if ($coffeeid != NULL){
                             <td><?php echo $row['ratingdate']; ?></td>
                         </tr>
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
                 <a class="btn btn-secondary" href="coffees.php" role="button">Go Back</a>
 

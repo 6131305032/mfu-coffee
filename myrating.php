@@ -1,9 +1,8 @@
-  
-  <?php session_start();
-    print_r($_SESSION);    
-  ?>
-  <!--Include Header -->
-  <?php include_once 'header.php'; ?>
+<!-- Start Session -->
+<?php session_start(); ?>
+
+<!--Include Header -->
+<?php include_once 'header.php'; ?>
     
     <!-- connect database to web -->
     <?php
@@ -25,9 +24,9 @@
   <div class="container-fluid">
         
         <div class="row justify-center">
-            <div class="col-4"> </div>
+            <div class="col-2"> </div>
 
-            <div class="col-8-pt-4">
+            <div class="col-8 pt-4">
                 <h1>Rating History for <?php echo $_SESSION['useravatar']; echo $_SESSION['username'];?></h1>
                 <table class="table table-hover">
                 <thead>

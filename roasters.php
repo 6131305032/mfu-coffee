@@ -21,20 +21,19 @@
             <!--Main display area -->
             <div class="col-sm-8 pt-4">
                 <h1>Roasters <button id="addRoaster" class="btn btn-success btn-lg" data-toggle="modal" data-target="#input-modal">+ Add New</button></h1>
-                <table class="table table-hover">
+                <table id="mainTable" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Location</th>
                             <th>Details</th>
-                            <th colspan="2">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody>
 
                     <!-- While there is more data, echo it into the appropriate columns -->
-                    <?php
-                    while ($row = $result->fetch_assoc()) :
-                    ?>
+                    <?php  while ($row = $result->fetch_assoc()) : ?>
                         <?php $roasterid = $row['roasterid']; ?>
                         <tr>
                             <td><?php echo $row['roastername']; ?></td>
@@ -48,6 +47,7 @@
                             </td>
                         </tr>
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
             </div>
 

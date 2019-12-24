@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
 </head>
 
 <?php if (!isset($_SESSION['active'])){ $links = 'disabled'; } else {$links='';} ?>
@@ -17,7 +18,8 @@
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-sm sticky-top bg-dark navbar-dark">
-        <a class="navbar-brand" href="index.php">☕ MFU Coffee - CRUD Project</a>
+        <a class="navbar-brand" href="index.php"><span class="emoji" style=" font-family: apple color emoji,segoe ui emoji,noto color emoji;
+">☕</span> MFU Coffee - CRUD Project</a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link <?php echo $links ?>" href="coffees.php">Coffees</a>
@@ -55,6 +57,15 @@
             </form>
         </div>
     <?php endif ?>
+
+                <!-- Sorting feature from DataTables js -->
+    <script>
+    $(document).ready(function() {
+        $('#mainTable').DataTable({
+            "searching": false
+        });
+    } );
+    </script>
 
 
     

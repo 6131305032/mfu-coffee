@@ -27,7 +27,7 @@
             <!--Main display area -->
             <div class="col-sm-8 pt-4">
                 <h1>Coffees <button id="addBtn" class="btn btn-success btn-lg" data-toggle="modal" data-target="#input-modal">+ Add New</button></h1>
-                <table class="table table-hover">
+                <table class="table table-hover" id="mainTable">
                     <thead>
                         <tr>
                             <th>Coffee Name</th>
@@ -35,17 +35,17 @@
                             <th>Origin</th>
                             <th>Variety</th>
                             <th>Rating</th>
-                            <th colspan="2">Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
-                    <!-- While there is more data, echo it into the appropriate columns -->
-                    <?php while ($row = $result->fetch_assoc()) : ?>
+                    <tbody>
+                        <tr>
+                        <!-- While there is more data, echo it into the appropriate columns -->
+                        <?php while ($row = $result->fetch_assoc()) : ?>
                         <!-- Set variables to send to next page -->
                         <?php $coffeeid = $row['coffeeid']; ?>
-                        <?php $coffeename = $row['coffeename']; ?>
-
-                        <tr>
+                        <?php $coffeename = $row['coffeename']; ?>                           
                             <td><?php echo $row['coffeename']; ?> <p></p>
                                 <!-- View Ratings Button -->
                                 <a href="ratings.php?viewcoffee=<?php echo $coffeeid ?>&coffeename=<?php echo $coffeename ?>" class="btn btn-outline-secondary">View Ratings</a></td>
@@ -68,8 +68,9 @@
                                 <a href="coffees.php?edit=<?php echo $coffeeid; ?>" id="editBtn" class="btn btn-info btn-block">Edit</a>
                                 <a href="coffeeprocess.php?delete=<?php echo $coffeeid; ?>" class="btn btn-danger btn-block">Delete</a>
                             </td>
-                        </tr>
+                        </tr>                       
                     <?php endwhile; ?>
+                    </tbody>
                 </table>
 
             </div> 
@@ -159,6 +160,7 @@
     <?php if ($update == true) {
         echo '<script>$(\'#input-modal\').modal(\'show\')</script>';
     } ?>
+    
 
 
     </html>

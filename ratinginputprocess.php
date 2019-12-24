@@ -28,6 +28,7 @@ if (isset($_POST ['save'])){
 
     $_SESSION['message'] = "Record has been saved!";
     $_SESSION['msg_type'] = "success";
+    
     //Javascript to send back to rating page
     echo "<script type='text/javascript'>window.top.location='ratings.php';</script>";}
     ?>
